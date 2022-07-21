@@ -1,0 +1,33 @@
+version: '3.4'
+
+
+x-var: &api_port_value 8082
+
+services:
+  frontend:
+    build:
+      context: ./simple_frontend
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - sample-net
+    ports:
+      - 80:80
+    environment:
+      HTTP_PORT: 80
+      SIMPLE_API_HOST: localhost
+      SIMPLE_API_PORT: *api_port_value
+    depends_on:
+      - api
+  api:
+    build:
+      context: ./simple_api
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - sample-net
+    environment:
+      SIMPLE_API_PORT: *api_port_value
+networks:
+  sample-net:
+    driver: bridge

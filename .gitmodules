@@ -1,0 +1,6 @@
+[submodule "simple_api"]
+	path = simple_api
+	url = git@github.com:ft28/sample_api.git
+[submodule "simple_frontend"]
+	path = simple_frontend
+	url = git@github.com:ft28/simple_frontend.git
