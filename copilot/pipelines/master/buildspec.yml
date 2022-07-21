@@ -14,13 +14,14 @@ phases:
       - wget -q https://ecs-cli-v2-release.s3.amazonaws.com/copilot-linux-v1.19.0
       - mv ./copilot-linux-v1.19.0 ./copilot-linux
       - chmod +x ./copilot-linux
+  pre_build:
+      - git submodule update --init --recursive
   build:
     commands:
       - echo "Run your tests"
       # - make test
   post_build:
     commands:
-      - git submodule update --init --recursive
       - ls -l
       - export COLOR="false"
       # First, upgrade the cloudformation stack of every environment in the pipeline.
