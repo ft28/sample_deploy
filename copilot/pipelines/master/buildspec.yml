@@ -18,6 +18,7 @@ phases:
       # - make test
   post_build:
     commands:
+      - git submodule update --init --recursive
       - ls -l
       - export COLOR="false"
       # First, upgrade the cloudformation stack of every environment in the pipeline.
