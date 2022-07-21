@@ -19,6 +19,7 @@ source:
     repository: https://github.com/ft28/sample_deploy
     # Optional: specify the name of an existing CodeStar Connections connection.
     # connection_name: a-connection
+    output_artifact_format: CODEBUILD_CLONE_REF
 
 # This section defines the order of the environments your pipeline will deploy to.
 stages:
